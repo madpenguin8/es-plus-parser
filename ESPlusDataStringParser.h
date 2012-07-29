@@ -9,37 +9,37 @@
 
 @interface ESPlusDataStringParser : NSObject
 {
-	@private
-				double	m_dischargePressure,
-						m_reservoirPressure,
-						m_dischargeTemperature,
-						m_reservoirTemperature,
-						m_runHours,
-						m_loadHours,
-                        m_currentTempHM1,
-                        m_currentTempHM2,
-                        m_currentTempHM3,
-                        m_currentTempHM4,
-                        m_currentTempHM5,
-                        m_currentTempHM6,
-                        m_storedTempHM1,
-                        m_storedTempHM2,
-                        m_storedTempHM3,
-                        m_storedTempHM4,
-                        m_storedTempHM5,
-                        m_storedTempHM6,
-						m_lastOilChange,
-						m_lastOilFilterChange,
-						m_oilAge;
-				
-				uint	m_mainMotorAmps,
-						m_sequenceNumber;
+    @private
+    double	m_dischargePressure,
+            m_reservoirPressure,
+            m_dischargeTemperature,
+            m_reservoirTemperature,
+            m_runHours,
+            m_loadHours,
+            m_currentTempHM1,
+            m_currentTempHM2,
+            m_currentTempHM3,
+            m_currentTempHM4,
+            m_currentTempHM5,
+            m_currentTempHM6,
+            m_storedTempHM1,
+            m_storedTempHM2,
+            m_storedTempHM3,
+            m_storedTempHM4,
+            m_storedTempHM5,
+            m_storedTempHM6,
+            m_lastOilChange,
+            m_lastOilFilterChange,
+            m_oilAge;
 
-		NSMutableArray	*m_shutdowns,
-						*m_advisories;
+    uint m_mainMotorAmps,
+        m_sequenceNumber;
+
+    NSMutableArray *m_shutdowns,
+                   *m_advisories;
 	
-			NSString	*m_operatingMode,
-						*m_operatingState;
+    NSString *m_operatingMode,
+             *m_operatingState;
 }
 
 @property (readonly, nonatomic) double dischargePressure;
