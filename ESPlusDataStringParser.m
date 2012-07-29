@@ -116,6 +116,13 @@
 {
     BOOL success = FALSE;
 
+    // Reset to zero
+    m_dischargePressure = 0.0;
+    m_reservoirPressure = 0.0;
+    m_dischargeTemperature = 0.0;
+    m_reservoirTemperature = 0.0;
+    m_mainMotorAmps = 0;
+
     if ([operatingDataString length] == OP_DATA_LENGTH) {
         NSString *disPressString = [operatingDataString substringWithRange:NSMakeRange(0, 4)];
         NSString *resPressString = [operatingDataString substringWithRange:NSMakeRange(4, 4)];
@@ -227,6 +234,25 @@
 - (BOOL)parseServiceDataString:(NSString *)serviceDataString
 {
     BOOL success = FALSE;
+
+    // Reset to zero
+    m_runHours = 0.0;
+    m_loadHours = 0.0;
+    m_currentTempHM1 = 0.0;
+    m_currentTempHM2 = 0.0;
+    m_currentTempHM3 = 0.0;
+    m_currentTempHM4 = 0.0;
+    m_currentTempHM5 = 0.0;
+    m_currentTempHM6 = 0.0;
+    m_storedTempHM1 = 0.0;
+    m_storedTempHM2 = 0.0;
+    m_storedTempHM3 = 0.0;
+    m_storedTempHM4 = 0.0;
+    m_storedTempHM5 = 0.0;
+    m_storedTempHM6 = 0.0;
+    m_lastOilChange = 0.0;
+    m_lastOilFilterChange = 0.0;
+    m_oilAge = 0.0;
 
     if ([serviceDataString length] == SERVICE_DATA_LENGTH) {
         // Remove pesky '$' delimiters.
