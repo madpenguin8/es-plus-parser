@@ -8,13 +8,13 @@
 
 #import "ESPlusDataStringParser.h"
 
-#define OP_MODE_OLD 1
-#define OP_MODE_NEW 4
-#define OP_DATA_LENGTH 19
-#define SERVICE_DATA_LENGTH 214
-#define ADVISORY_DATA_LENGTH 4
-
 @implementation ESPlusDataStringParser
+
+static const uint OP_MODE_OLD = 1;
+static const uint OP_MODE_NEW = 4;
+static const uint OP_DATA_LENGTH = 19;
+static const uint ADVISORY_DATA_LENGTH = 4;
+static const uint SERVICE_DATA_LENGTH = 214;
 
 @synthesize dischargePressure = m_dischargePressure;
 @synthesize reservoirPressure = m_reservoirPressure;
