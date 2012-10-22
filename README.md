@@ -1,7 +1,7 @@
 es-plus-parser
 ==============
 
-ESPlusDataStringParser is a Cocoa class intended to decode data from a Gardner Denver® 
+ESPlusDataStringParser are Qt and Cocoa classes intended to decode data from a Gardner Denver® 
 ES+® compressor controller. Data from the controller is in the form of a string 
 of ASCII characters. Support is available for all three controller responses
 which includes:
