@@ -133,25 +133,26 @@ static const uint SERVICE_DATA_LENGTH = 214;
         uint disPDec;
         NSScanner *dPScan = [NSScanner scannerWithString:disPressString];
         if ([dPScan scanHexInt:&disPDec]){
-            m_dischargePressure = disPDec / 16.00;
+            // Cast to signed 16 bit int like it should be to handle negative values
+            m_dischargePressure = ((int16_t)disPDec / 16.00);
         }
 
         uint resPDec;
         NSScanner *rPScan = [NSScanner scannerWithString:resPressString];
         if ([rPScan scanHexInt:&resPDec]){
-            m_reservoirPressure = resPDec / 16.00;
+            m_reservoirPressure = ((int16_t)resPDec / 16.00);
         }
 
         uint disTDec;
         NSScanner *disTScan = [NSScanner scannerWithString:disTempString];
         if ([disTScan scanHexInt:&disTDec]){
-            m_dischargeTemperature = disTDec / 16.00;
+            m_dischargeTemperature = ((int16_t)disTDec / 16.00);
         }
 		
         uint resTDec;
         NSScanner *resTScan = [NSScanner scannerWithString:resTempString];
         if ([resTScan scanHexInt:&resTDec]){
-            m_reservoirTemperature = resTDec / 16.00;
+            m_reservoirTemperature = ((int16_t)resTDec / 16.00);
         }
 
         uint ampsDec;
@@ -160,22 +161,6 @@ static const uint SERVICE_DATA_LENGTH = 214;
             m_mainMotorAmps = ampsDec;
         }
 
-        // Handle negative values
-        if(m_dischargePressure > 2047.0){
-            m_dischargePressure -= 4096.0;
-        }
-		
-        if(m_reservoirPressure > 2047.0){
-            m_reservoirPressure -= 4096.0;
-        }
-
-        if(m_dischargeTemperature > 2047.0){
-            m_dischargeTemperature -= 4096.0;
-        }
-
-        if(m_reservoirTemperature > 2047.0){
-            m_reservoirTemperature -= 4096.0;
-        }
         success = TRUE;
     }
     return success;
